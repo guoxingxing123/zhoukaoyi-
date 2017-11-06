@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+       <p>北京市<i class="iconfont">&#xe654;</i></p>
+       <h1>途虎养车</h1>
+       <span>
+           <dl>
+                <dt><i class="iconfont">&#xe658;</i></dt>
+                <dd>搜索</dd>
+           </dl>
+            <dl>
+                <dt><i class="iconfont">&#xe658;</i></dt>
+                <dd>搜索</dd>
+           </dl>
+       </span>
+    </header>
+    <section></section>
+    <footer>
+        <dl>
+            <dt><i class="iconfont">&#xe691;</i></dt>
+            <dd>首页</dd>
+        </dl>
+        <dl>
+            <dt><i class="iconfont">&#xe691;</i></dt>
+            <dd>首页</dd>
+        </dl>
+        <dl>
+            <dt><i class="iconfont">&#xe691;</i></dt>
+            <dd>首页</dd>
+        </dl>
+        <dl>
+            <dt><i class="iconfont">&#xe691;</i></dt>
+            <dd>首页</dd>
+        </dl>
+    </footer>
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+    $.ajax({
+        url:"http://localhost:8080/index.html",
+        success:function(data){
+            var str=""
+            var section = document.getElementsByTagName("section")[0]
+            str+="<div class='main1'>"
+                for(var i=0;i<data.main1.length;i++){
+                     str+='<dl><dt><img src="'+data.main1[i].font+'"></dt>'+data.main1[i].titl+'<dd></dd></dl>'
+                }
+                str+="</div><div class='main2'>"
+                for(var i=0;i<data.main2.length;i++){
+                    str+='<dl><dt><img src="'+data.main2[i].font+'"></dt>'+data.main2[i].titl+'<dd></dd></dl>'
+                }
+                str+="</div><div class='pic'>"
+                    str+='<img src="'+data.src+'">'
+                    str+="</div>"
+                section.innerHTML=str
+           
+        }
+    })
+</script>
+</html>
